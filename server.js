@@ -16,7 +16,7 @@ var RefreshToken = require("./js/refreshtoken");
 
 var clientId = "00ad9b505220aab0cb9d1a02163609435355d3fc191f7d7c8519e41a164bfdb8";
 var clientSecret = "1351dfa8fe11d28dc6750f99e559b3347647d0d5236efdfdf454ef9df7f83495";
-var redirect_uri = "http://srmrest.herokuapp.com/callback";
+var redirect_uri = "https://srmrest.herokuapp.com/callback";
 var scope = "engage";
 
 var refreshPath = "";
@@ -150,7 +150,7 @@ restService.get('/callback',function(request,response){
 //                "CacheParam" : CacheParam,
 //                "url" : "http://localhost:8888/main"
 //            });
-            response.redirect("http://srmrest.herokuapp.com/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
+            response.redirect("https://srmrest.herokuapp.com/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
         
         });
     });
