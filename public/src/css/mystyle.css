@@ -126,7 +126,7 @@ body {
 .navbar-brand{
     padding: 0 18px;
     border-left: 2px solid #ccc!important;
-    line-height: 28px;
+/*    line-height: 28px;*/
 }
 
 .brand_logo{
