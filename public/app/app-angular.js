@@ -76,26 +76,26 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     else{
         alert("Browser Error!")
     }
-    var messages = "Social Relationship Management";
-    $scope.showmsg = "Test" ;
-    setTimeout(function(){
-        var i = 0;
-        var myVar = setInterval(function(){ myTimer() }, 300);
-
-        function myTimer() {
-            console.log( i + " : " + messages.charAt(i) );
-            $scope.showmsg = $scope.showmsg + messages.charAt(i);
-            console.log("$scope.showmsg : " + $scope.showmsg );
-            if( i == messages.length-1 )
-                myStopFunction();
-            else
-                i++;
-        }
-
-        function myStopFunction() {
-            clearInterval(myVar);
-        }
-    },5000);
+//    var messages = "Social Relationship Management";
+//    $scope.showmsg = "Test" ;
+//    setTimeout(function(){
+//        var i = 0;
+//        var myVar = setInterval(function(){ myTimer() }, 300);
+//
+//        function myTimer() {
+//            console.log( i + " : " + messages.charAt(i) );
+//            $scope.showmsg = $scope.showmsg + messages.charAt(i);
+//            console.log("$scope.showmsg : " + $scope.showmsg );
+//            if( i == messages.length-1 )
+//                myStopFunction();
+//            else
+//                i++;
+//        }
+//
+//        function myStopFunction() {
+//            clearInterval(myVar);
+//        }
+//    },5000);
     
 
 });
