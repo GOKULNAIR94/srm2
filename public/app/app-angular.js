@@ -95,7 +95,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         function myStopFunction() {
             clearInterval(myVar);
         }
-    },3000);
+    },5000);
     
 
 });
