@@ -68,7 +68,7 @@ restService.post('/checklogin',function(request,response){
                 response.json({
                     "status" : "200",
                     "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
-                });//response.redirect('http://localhost:8888/main');
+                });//response.redirect('https://srmrest.herokuapp.com/main');
             }
             else{
                 if( refreshToken == "" || refreshToken == null ){
@@ -93,7 +93,7 @@ restService.post('/checklogin',function(request,response){
                                 "CacheParam" : CacheParam,
                                 "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
                             });
-                            //response.redirect('http://localhost:8888/');
+                            //response.redirect('https://srmrest.herokuapp.com/');
                         }
                         else{
                             response.json({
@@ -147,7 +147,7 @@ restService.get('/callback',function(request,response){
 //            response.json({
 //                "status" : "updateToken",
 //                "CacheParam" : CacheParam,
-//                "url" : "http://localhost:8888/main"
+//                "url" : "https://srmrest.herokuapp.com/main"
 //            });
             response.redirect("https://srmrest.herokuapp.com/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
         
@@ -156,4 +156,41 @@ restService.get('/callback',function(request,response){
 
     req.end();
     
+});
+
+restService.post('/getData',function(request,response){
+    console.log("Get dAta");
+    newToken = request.body.data;
+    var options = {
+        "method": "GET",
+        "hostname": "public-api.vitrue.com",
+        "port": null,
+        "path": "/engage/v1/messages?bundleId=34442",
+        "headers": {
+            "authorization": "Bearer " + newToken,
+            "cache-control": "no-cache"
+        }
+    };
+
+    var req = https.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+            chunks.push(chunk);
+        });
+
+        res.on("end", function () {
+            var body = Buffer.concat(chunks);
+            console.log(body.toString());
+            var output = JSON.parse(body.toString());
+            if( res.statusCode == 200 )
+                response.json( {"status" : 200,
+                               "output" : output } );
+            else
+                response.json( {"status" : 401 } );
+        });
+    });
+
+    req.end();
+
 });

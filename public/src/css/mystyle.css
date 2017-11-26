@@ -77,7 +77,6 @@ body {
 }
 
 .container {
-  
     padding: 90px 10%;
 }
 
@@ -133,4 +132,8 @@ body {
 
 .brand_logo{
     padding: 0 14px;
+}
+
+.trans{
+    opacity: 0.9;
 }

@@ -76,6 +76,25 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     else{
         alert("Browser Error!")
     }
+    
+    
+    $scope.getData = function ( ) {
+        console.log("Get Data");
+        $http({
+            method: 'POST',
+            data : { "data" : window.localStorage.srmnewtoken },
+            url: 'https://srmrest.herokuapp.com/getData'
+            
+        }).then(function (response) {
+            console.log(JSON.stringify(response));
+            if( response.data.status == 200 )
+               $scope.messages = response.data.output.items[0];
+            else
+                alert("Error");
+        });
+    };
+    
+    
 //    var messages = "Social Relationship Management";
 //    $scope.showmsg = "Test" ;
 //    setTimeout(function(){

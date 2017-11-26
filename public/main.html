@@ -1,10 +1,28 @@
 
 <div class="container">
     
-    <div class="jumbotron">
+    <div class="jumbotron trans">
           <h1 class="display-3">Jumbotron heading</h1>
-          <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+          <div style="text-align: center">
+              <p class="lead">Listen Control</p>
+        <a href="#main" class="btn btn-success btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="getData()">Start Listening</a>
+        <a href="#main" class="btn btn-primary btn-lg btn-danger disabled" role="button" aria-pressed="true">Stop Listening</a>
+        </div>
+          <div class="album text-muted">
+        <div class="container">
+
+          <div class="row">
+
+            <div class="card">
+                <a href="#" style="text-decoration: none">
+              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
+              <p class="card-text">{{messages}}</p>
+                    </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
         </div>
 
 </div>
