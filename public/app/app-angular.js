@@ -81,7 +81,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     
     for( var i=0;i<= messages.length ; i++ ){
         setTimeout(function(){
-            $scope.showmsg = $scope.showmsg + messages[i];
+            $scope.showmsg = $scope.showmsg + messages.charAt[i];
         },1000);
         
     }
