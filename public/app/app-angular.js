@@ -79,13 +79,19 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     var messages = "Social Relationship Management";
     $scope.showmsg = "" ;
     
-    for( var i=0; i<= messages.length ; i++ ){
-        setTimeout(function(){
-            alert("Char " + i +" : " + messages.charAt[i] );
-            $scope.showmsg = $scope.showmsg + messages.charAt[i];
-        },1000);
-        
+    var i = 0;
+    var myVar = setInterval(function(){ myTimer() }, 1000);
+
+    function myTimer() {
+        $scope.showmsg = $scope.showmsg + messages.charAt[i];
+        if( i == messages.length )
+            myStopFunction();
     }
+
+    function myStopFunction() {
+        clearInterval(myVar);
+    }
+
 });
 
 //app.controller('loginCont', function( $scope, $rootScope ) {
