@@ -125,5 +125,9 @@ body {
 
 .navbar-brand{
     padding: 0 18px;
-    border-left: 6px solid #ccc!important;
+    border-left: 3px solid #ccc!important;
+}
+
+.brand_logo{
+    padding: 10px 0;
 }
