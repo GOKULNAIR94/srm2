@@ -5,13 +5,12 @@ module.exports = function( refreshPath, callback ) {
         "method": "POST",
         "hostname": "gatekeeper.vitrue.com",
         "path": refreshPath,
-//        "path": "/oauth/token?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + code + "&refresh_token=" + refreshToken + "&grant_type=refresh_token",
         "headers": {
             "cache-control": "no-cache",
         }
     };
     console.log( "path : " + options.path );
-        var req = https.request(options, function (res) {
+    var req = https.request(options, function (res) {
         var chunks = [];
 
         res.on("data", function (chunk) {

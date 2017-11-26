@@ -79,7 +79,7 @@ restService.post('/checklogin',function(request,response){
                 }
                 else{
                     refreshPath = "/oauth/token?client_id=" +clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + code + "&refresh_token=" + refreshToken +"&grant_type=refresh_token";
-//                    refreshPath = "/oauth/token?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&refresh_token=" + refreshToken + "&grant_type=refresh_token";
+
                     RefreshToken( refreshPath, function( output ) {
                         if( output != "Error"){
                             console.log( "Refreshed Tokens : " + output );
@@ -117,7 +117,6 @@ restService.get('/callback',function(request,response){
         "method": "POST",
         "hostname": "gatekeeper.vitrue.com",
         "path": "/oauth/token?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&code=" + code + "&grant_type=authorization_code",
-//        "path": "/oauth/token?client_id=91643e161d13ccbdcfc1681ce81da56c18ac44ec98558b07da6980e6426bfd32&client_secret=0242617904b60702b5701d874cf928de74066ba5f3a9221de3720407da913152&redirect_uri=https://www.getpostman.com/oauth2/callback&code=" + code + "&grant_type=authorization_code",
         "headers": {
             "cache-control": "no-cache"
         }
