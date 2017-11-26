@@ -121,13 +121,15 @@ body {
 
 .toplogo{
     padding-left: 5rem;
+    line-height: 1.5;
+    height: 3.5rem;
 }
 
 .navbar-brand{
     padding: 0 18px;
-    border-left: 6px solid #ccc!important;
+    border-left: 2px solid #ccc!important;
 }
 
 .brand_logo{
-    padding: 0 10px;
+    padding: 0 12px;
 }
