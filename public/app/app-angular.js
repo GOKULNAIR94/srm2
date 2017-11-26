@@ -86,6 +86,8 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         $scope.showmsg = $scope.showmsg + messages.charAt[i];
         if( i == messages.length )
             myStopFunction();
+        else
+            i++;
     }
 
     function myStopFunction() {
