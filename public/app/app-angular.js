@@ -76,8 +76,15 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     else{
         alert("Browser Error!")
     }
+    var messages = "Social Relationship Management";
+    $scope.showmsg = "" ;
     
-    $scope.showmsg = "Social Relationship Management";
+    for( var i=0;i<= messages.length ; i++ ){
+        setTimeout(function(){
+            $scope.showmsg = $scope.showmsg + messages[i];
+        },1000);
+        
+    }
 });
 
 //app.controller('loginCont', function( $scope, $rootScope ) {
