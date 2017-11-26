@@ -83,6 +83,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     var myVar = setInterval(function(){ myTimer() }, 1000);
 
     function myTimer() {
+        console.log( i + " : " + messages.charAt[i] );
         $scope.showmsg = $scope.showmsg + messages.charAt[i];
         if( i == messages.length )
             myStopFunction();
