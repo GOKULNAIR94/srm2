@@ -44,7 +44,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     if( window.localStorage ){
         $http({
             method: 'POST',
-            url: 'http://localhost:8888/checklogin',
+            url: 'https://srmrest.herokuapp.com/checklogin',
             data:{
                 "srmnewtoken" : window.localStorage.srmnewtoken,
                 "srmrefreshtoken" : window.localStorage.srmrefreshtoken,
