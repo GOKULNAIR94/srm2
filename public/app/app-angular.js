@@ -77,7 +77,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         alert("Browser Error!")
     }
     var messages = "Social Relationship Management";
-    $scope.showmsg = "" ;
+    $scope.showmsg = "Test" ;
     setTimeout(function(){
         var i = 0;
         var myVar = setInterval(function(){ myTimer() }, 300);
