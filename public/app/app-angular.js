@@ -80,11 +80,11 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     $scope.showmsg = "" ;
     setTimeout(function(){
         var i = 0;
-        var myVar = setInterval(function(){ myTimer() }, 1000);
+        var myVar = setInterval(function(){ myTimer() }, 300);
 
         function myTimer() {
             console.log( i + " : " + messages.charAt(i) );
-            $scope.showmsg = $scope.showmsg + messages.charAt[i];
+            $scope.showmsg = $scope.showmsg + messages.charAt(i);
             if( i == messages.length )
                 myStopFunction();
             else
