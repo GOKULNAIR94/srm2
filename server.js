@@ -67,7 +67,7 @@ restService.post('/checklogin',function(request,response){
             if( statusCode == 200 ){
                 response.json({
                     "status" : "200",
-                    "url" : "http://localhost:8888/main"
+                    "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
                 });//response.redirect('http://localhost:8888/main');
             }
             else{
@@ -91,7 +91,7 @@ restService.post('/checklogin',function(request,response){
                             response.json({
                                 "status" : "updateToken",
                                 "CacheParam" : CacheParam,
-                                "url" : "http://localhost:8888/main"
+                                "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
                             });
                             //response.redirect('http://localhost:8888/');
                         }

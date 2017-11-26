@@ -4,10 +4,7 @@ app.run(function(){
 });
 
 app.config(function($routeProvider) {    $routeProvider
-//.when("/", {
-//        templateUrl : "main.html",
-//        controller: 'mainCont'
-//    })
+
 .when("/", {
         templateUrl : "wait.html"
     })
@@ -21,6 +18,7 @@ app.config(function($routeProvider) {    $routeProvider
 
 
 app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
+    $location.path('\/');
     console.log("This is index Controller!");
     console.log("srmnewtoken : " + window.localStorage.srmnewtoken);
     console.log("srmrefreshtoken : " + window.localStorage.srmrefreshtoken);
@@ -42,12 +40,11 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         window.localStorage.code = $location.search().code;
     }
     
-    //$location.path('\main');
     
     if( window.localStorage ){
         $http({
             method: 'POST',
-            url: 'https://srmrest.herokuapp.com/checklogin',
+            url: 'http://localhost:8888/checklogin',
             data:{
                 "srmnewtoken" : window.localStorage.srmnewtoken,
                 "srmrefreshtoken" : window.localStorage.srmrefreshtoken,
@@ -55,10 +52,10 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
             }
         }).then(function (response) {
             console.log( "response : " + JSON.stringify(response));
+            $scope.authurl = response.data.url;
             
             if( response.data.status == 401 ){
-                //$rootScope.authurl1 = response.data.url;
-                $scope.authurl = response.data.url;
+                //$rootScope.authurl1 = response.data.url;    
                 $location.path('\login');
             }
             
