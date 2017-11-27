@@ -2,7 +2,7 @@
 <div class="container">
     
     <div class="jumbotron trans">
-          <h1 class="display-3">SRM Messages</h1>
+          <h1 class="display-5">SRM Messages</h1>
           <div style="text-align: center">
               <p class="lead">Listen Control</p>
         <a href="#main" class="btn btn-success btn-primary btn-lg active" id="startListen" role="button" aria-pressed="true" ng-click="startListen()">Start Listening</a>
@@ -15,7 +15,7 @@
 
             <div class="card" ng-repeat="message in messages">
                 <a href="#" style="text-decoration: none">
-              <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
+              <img data-src={{message.author.authorImage}} alt={{message.author.name}}>
               <p class="card-text">{{message.id}}</p><p class="card-text">{{message.body}}</p>
                     </a>
             </div>

@@ -77,7 +77,7 @@ body {
 }
 
 .container {
-    padding: 90px 10%;
+    padding: 40px 7%;
 }
 
 .row{
@@ -136,6 +136,7 @@ body {
 
 .trans{
     opacity: 1;
+	/*background-color: #e7f5f5;*/
 }
 
 .card{
@@ -143,4 +144,9 @@ body {
 	margin: 3px 0;
     padding: 14px;
     width: 100%;
+}
+
+.card 
+a,p{
+	color: Black;
 }
