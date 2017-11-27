@@ -139,6 +139,7 @@ body {
 }
 
 .card{
+	opacity: 1;
 	margin: 3px 0;
     padding: 14px;
     width: 100%;
