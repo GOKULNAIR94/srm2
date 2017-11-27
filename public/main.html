@@ -2,21 +2,21 @@
 <div class="container">
     
     <div class="jumbotron trans">
-          <h1 class="display-3">Jumbotron heading</h1>
+          <h1 class="display-3">SRM Messages</h1>
           <div style="text-align: center">
               <p class="lead">Listen Control</p>
-        <a href="#main" class="btn btn-success btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="getData()">Start Listening</a>
-        <a href="#main" class="btn btn-primary btn-lg btn-danger disabled" role="button" aria-pressed="true">Stop Listening</a>
+        <a href="#main" class="btn btn-success btn-primary btn-lg active" id="startListen" role="button" aria-pressed="true" ng-click="startListen()">Start Listening</a>
+        <a href="#main" class="btn btn-primary btn-lg btn-danger disabled" id="stopListen" role="button" aria-pressed="true" ng-click="stopListen()">Stop Listening</a>
         </div>
           <div class="album text-muted">
         <div class="container">
 
           <div class="row">
 
-            <div class="card">
+            <div class="card" ng-repeat="message in messages">
                 <a href="#" style="text-decoration: none">
               <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
-              <p class="card-text">{{messages}}</p>
+              <p class="card-text">{{message.id}}</p><p class="card-text">{{message.body}}</p>
                     </a>
             </div>
           </div>

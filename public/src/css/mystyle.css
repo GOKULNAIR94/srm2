@@ -137,3 +137,9 @@ body {
 .trans{
     opacity: 0.9;
 }
+
+.card{
+	margin: 3px 0;
+    padding: 14px;
+    width: 100%;
+}

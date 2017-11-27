@@ -78,8 +78,13 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     }
     
     
-    $scope.getData = function ( ) {
+    $scope.startListen = function ( ) {
         console.log("Get Data");
+		document.getElementById("startListen").classList.remove("active");
+		document.getElementById("startListen").classList.add("disabled");
+		document.getElementById("stopListen").classList.remove("disabled");
+		document.getElementById("stopListen").classList.add("active");
+
         $http({
             method: 'POST',
             data : { "data" : window.localStorage.srmnewtoken },
@@ -88,12 +93,18 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         }).then(function (response) {
             console.log(JSON.stringify(response));
             if( response.data.status == 200 )
-               $scope.messages = response.data.output.items[0];
+               $scope.messages = response.data.output.items;
             else
                 alert("Error");
         });
     };
-    
+	
+	$scope.stopListen = function ( ) {
+		document.getElementById("stopListen").classList.remove("active");
+		document.getElementById("stopListen").classList.add("disabled");
+		document.getElementById("startListen").classList.remove("disabled");
+		document.getElementById("startListen").classList.add("active");
+	};
     
 //    var messages = "Social Relationship Management";
 //    $scope.showmsg = "Test" ;

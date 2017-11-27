@@ -68,7 +68,7 @@ restService.post('/checklogin',function(request,response){
                 response.json({
                     "status" : "200",
                     "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
-                });//response.redirect('https://srmrest.herokuapp.com/main');
+                });
             }
             else{
                 if( refreshToken == "" || refreshToken == null ){
@@ -93,7 +93,7 @@ restService.post('/checklogin',function(request,response){
                                 "CacheParam" : CacheParam,
                                 "url" : "https://gatekeeper.vitrue.com/oauth/authorize?client_id=" + clientId + "&client_secret=" + clientSecret + "&redirect_uri=" + redirect_uri + "&scope=" + scope + "&response_type=code" 
                             });
-                            //response.redirect('https://srmrest.herokuapp.com/');
+                            
                         }
                         else{
                             response.json({
@@ -144,11 +144,6 @@ restService.get('/callback',function(request,response){
                 "srmrefreshtoken" : output.refresh_token,
                 "code" : code
             }
-//            response.json({
-//                "status" : "updateToken",
-//                "CacheParam" : CacheParam,
-//                "url" : "https://srmrest.herokuapp.com/main"
-//            });
             response.redirect("https://srmrest.herokuapp.com/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
         
         });
