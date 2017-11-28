@@ -14,7 +14,7 @@
           <div class="row">
 
             <div class="card" ng-repeat="message in messages">
-                <a href="#" style="text-decoration: none">
+                <a href="#main" ng-click="sendAI(message.body)" style="text-decoration: none">
               <img data-src={{message.author.authorImage}} alt={{message.author.name}}>
               <p class="card-text">{{message.id}}</p><p class="card-text">{{message.body}}</p>
                     </a>

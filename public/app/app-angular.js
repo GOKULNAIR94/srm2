@@ -104,16 +104,25 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
 		document.getElementById("stopListen").classList.add("disabled");
 		document.getElementById("startListen").classList.remove("disabled");
 		document.getElementById("startListen").classList.add("active");
+	};
+	
+	$scope.sendAI = function ( text ) {
+		document.getElementById("stopListen").classList.remove("active");
+		document.getElementById("stopListen").classList.add("disabled");
+		document.getElementById("startListen").classList.remove("disabled");
+		document.getElementById("startListen").classList.add("active");
 		
 		$http({
             method: 'POST',
-            data : { "data" : "Hi DilogFlow Wassup" },
+            data : { "data" : text.substring( 0, 249 ) },
             url: 'http://localhost:8888/sendAI'
             
         }).then(function (response) {
             console.log(JSON.stringify(response));
-            if( response.data.status == 200 )
-               alert("ALert : " + response.data.output.result.fulfillment.speech);
+            if( response.data.status == 200 ){
+				               alert("ALert : " + response.data.output.result.fulfillment.speech);
+							   alert("ALert!\nBureau :" + response.data.output.result.parameters.Bureau);
+			}
             else
                 alert("Error");
         });
