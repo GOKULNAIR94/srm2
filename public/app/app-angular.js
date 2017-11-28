@@ -44,7 +44,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     if( window.localStorage ){
         $http({
             method: 'POST',
-            url: 'https://srmrest.herokuapp.com/checklogin',
+            url: 'http://localhost:8888/checklogin',
             data:{
                 "srmnewtoken" : window.localStorage.srmnewtoken,
                 "srmrefreshtoken" : window.localStorage.srmrefreshtoken,
@@ -88,7 +88,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         $http({
             method: 'POST',
             data : { "data" : window.localStorage.srmnewtoken },
-            url: 'https://srmrest.herokuapp.com/getData'
+            url: 'http://localhost:8888/getData'
             
         }).then(function (response) {
             console.log(JSON.stringify(response));
@@ -104,6 +104,19 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
 		document.getElementById("stopListen").classList.add("disabled");
 		document.getElementById("startListen").classList.remove("disabled");
 		document.getElementById("startListen").classList.add("active");
+		
+		$http({
+            method: 'POST',
+            data : { "data" : "Hi DilogFlow Wassup" },
+            url: 'http://localhost:8888/sendAI'
+            
+        }).then(function (response) {
+            console.log(JSON.stringify(response));
+            if( response.data.status == 200 )
+               alert("ALert : " + response.data.output.result.fulfillment.speech);
+            else
+                alert("Error");
+        });
 	};
     
 //    var messages = "Social Relationship Management";
