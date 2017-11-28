@@ -44,7 +44,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
     if( window.localStorage ){
         $http({
             method: 'POST',
-            url: 'http://localhost:8888/checklogin',
+            url: 'https://srmrest.herokuapp.com/checklogin',
             data:{
                 "srmnewtoken" : window.localStorage.srmnewtoken,
                 "srmrefreshtoken" : window.localStorage.srmrefreshtoken,
@@ -88,7 +88,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
         $http({
             method: 'POST',
             data : { "data" : window.localStorage.srmnewtoken },
-            url: 'http://localhost:8888/getData'
+            url: 'https://srmrest.herokuapp.com/getData'
             
         }).then(function (response) {
             console.log(JSON.stringify(response));
@@ -115,7 +115,7 @@ app.controller('indexCont', function($scope, $http, $location, $rootScope ) {
 		$http({
             method: 'POST',
             data : { "data" : text.substring( 0, 249 ) },
-            url: 'http://localhost:8888/sendAI'
+            url: 'https://srmrest.herokuapp.com/sendAI'
             
         }).then(function (response) {
             console.log(JSON.stringify(response));

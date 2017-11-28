@@ -18,9 +18,9 @@ var apiai = require('apiai');
 var appSRMAI = apiai("8d83e8d3c4404af88b7436823ce27348 ");
 
 
-var clientId = "d4295c794fa276402195ad7001ff65be90739d757907e5203f6785895d49e4cd";
-var clientSecret = "057bc282f5a6c21c73fcfd221fd4efb300bfe5eb2fd05e0f4c3faead78c476c1";
-var redirect_uri = "http://localhost:8888/callback";
+var clientId = "00ad9b505220aab0cb9d1a02163609435355d3fc191f7d7c8519e41a164bfdb8";
+var clientSecret = "1351dfa8fe11d28dc6750f99e559b3347647d0d5236efdfdf454ef9df7f83495";
+var redirect_uri = "https://srmrest.herokuapp.com/callback";
 var scope = "engage";
 
 var refreshPath = "";
@@ -148,7 +148,7 @@ restService.get('/callback',function(request,response){
                 "srmrefreshtoken" : output.refresh_token,
                 "code" : code
             }
-            response.redirect("http://localhost:8888/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
+            response.redirect("https://srmrest.herokuapp.com/#/main?srmnewtoken=" + output.access_token + "&srmrefreshtoken=" + output.refresh_token + "&code=" + code);
         
         });
     });
